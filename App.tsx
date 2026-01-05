@@ -1,18 +1,17 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Pricing from './pages/Pricing';
-import Portfolio from './pages/Portfolio';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import AIChatbot from './components/AIChatbot';
-import { useEffect } from 'react';
+import Navbar from './components/Navbar.tsx';
+import Footer from './components/Footer.tsx';
+import Home from './pages/Home.tsx';
+import About from './pages/About.tsx';
+import Pricing from './pages/Pricing.tsx';
+import Portfolio from './pages/Portfolio.tsx';
+import Blog from './pages/Blog.tsx';
+import Contact from './pages/Contact.tsx';
+import AIChatbot from './components/AIChatbot.tsx';
 
-// Scroll to top helper
+// Auto-scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -24,25 +23,28 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <ScrollToTop />
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Catch all for service details and location pages (simulated for now) */}
-            <Route path="/service/:id" element={<Home />} />
-            <Route path="/location/:city" element={<Home />} />
-          </Routes>
-        </main>
-        <Footer />
-        <AIChatbot />
-      </div>
+      <ScrollToTop />
+      <Navbar />
+      <main className="flex-grow pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          
+          {/* SEO Optimized Routes */}
+          <Route path="/seo-company-tirupati" element={<Home />} />
+          <Route path="/digital-marketing-tirupati" element={<Home />} />
+          <Route path="/google-ads-expert-tirupati" element={<Home />} />
+          
+          {/* Fallback */}
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+      <Footer />
+      <AIChatbot />
     </Router>
   );
 };

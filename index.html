@@ -6,19 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niyaz Technologies - Best Digital Marketing Agency in Tirupati</title>
     <meta name="description" content="Niyaz Technologies is the best digital marketing company in Tirupati offering SEO services, web design, and social media management.">
+    
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons and Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* Base styles to prevent layout jumping */
         body { 
           font-family: 'Inter', sans-serif; 
-          overflow-x: hidden; 
           background-color: #f8fafc;
           margin: 0;
           padding: 0;
           color: #0f172a;
+          min-height: 100vh;
         }
         
+        #root {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+
         .hero-gradient { 
           background: linear-gradient(135deg, #0a192f 0%, #020617 100%); 
         }
@@ -30,31 +42,58 @@
         }
         .animate-float { animation: float 6s ease-in-out infinite; }
 
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a192f; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
 
-        /* Ensure root is always visible */
-        #root {
-          min-height: 100vh;
+        /* Initial Loading UI */
+        .initial-loader {
+          height: 100vh;
+          width: 100vw;
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: #0a192f;
+          color: white;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 9999;
         }
     </style>
-<script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@7.1.1?external=react,react-dom",
+    "@google/genai": "https://esm.sh/@google/genai@1.3.0",
+    "recharts": "https://esm.sh/recharts@2.15.0?external=react,react-dom",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "recharts": "https://esm.sh/recharts@^3.6.0"
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <!-- This loader disappears once React takes over -->
+        <div class="initial-loader">
+            <div style="text-align: center;">
+                <div style="font-size: 24px; font-weight: 900; letter-spacing: 0.1em; margin-bottom: 10px;">
+                    NIYAZ <span style="color: #3b82f6;">TECHNOLOGIES</span>
+                </div>
+                <div style="font-size: 10px; text-transform: uppercase; opacity: 0.6; letter-spacing: 0.3em;">
+                    Launching Business Growth...
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CRITICAL: Main script to boot the application -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>
