@@ -10,27 +10,27 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[98%] max-w-7xl z-[100] transition-all">
-      <div className="bg-[#0a192f] border border-white/20 rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.6)] px-6 sm:px-10 py-3">
-        <div className="flex justify-between items-center h-14">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-[#0a192f] border-b border-white/10 shadow-xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform group">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] bg-white">
+          <div className="flex-shrink-0">
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white border-2 border-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]">
                 <img 
                   src={COMPANY_DETAILS.logoUrl} 
-                  alt="Niyaz Technologies" 
-                  className="w-full h-full object-contain"
+                  alt="Niyaz Tech" 
+                  className="w-full h-full object-contain p-1"
                 />
               </div>
-              <span className="text-lg sm:text-2xl font-black text-white tracking-tighter hidden sm:inline-block uppercase">
+              <span className="text-white font-black text-xl tracking-tighter uppercase hidden sm:block">
                 NIYAZ<span className="text-blue-500">TECHNOLOGIES</span>
               </span>
             </Link>
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
             {[
               { label: 'HOME', path: '/' },
               { label: 'ABOUT', path: '/about' },
@@ -41,43 +41,43 @@ const Navbar: React.FC = () => {
               <Link 
                 key={link.path}
                 to={link.path} 
-                className={`px-6 py-2.5 rounded-full text-[13px] font-black tracking-[0.1em] transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg text-[11px] font-black tracking-widest transition-all ${
                   isActive(link.path) 
-                  ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.7)]' 
-                  : 'text-white hover:text-white hover:bg-white/10'
+                  ? 'text-blue-400' 
+                  : 'text-white hover:text-blue-300'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             
-            <div className="h-6 w-[1px] bg-white/30 mx-4"></div>
-            
-            <Link to="/contact" className="bg-[#111827] border border-white/10 text-white px-8 py-3 rounded-full font-black text-[13px] tracking-[0.1em] uppercase hover:bg-blue-700 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all">
+            <Link to="/contact" className="ml-4 bg-blue-600 text-white px-6 py-2.5 rounded-full font-black text-[11px] tracking-widest uppercase hover:bg-blue-700 transition-all shadow-lg active:scale-95">
               CONSULTATION
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white shadow-xl"
+              className="p-2 rounded-md text-white hover:text-blue-500 focus:outline-none transition-colors"
             >
-              <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars-staggered'} text-xl`}></i>
+              <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars-staggered'} text-2xl`}></i>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden mt-4 bg-[#0a192f] border border-white/20 rounded-[2.5rem] p-8 space-y-4 shadow-2xl">
+        <div className="lg:hidden bg-[#0a192f] border-t border-white/10 px-4 pt-2 pb-8 space-y-1 shadow-2xl">
           {['/', '/about', '/pricing', '/portfolio', '/blog'].map((path) => (
             <Link 
               key={path}
               to={path} 
-              className={`block px-6 py-4 rounded-full text-sm font-black tracking-widest uppercase text-center ${isActive(path) ? 'bg-blue-600 text-white shadow-lg' : 'text-white bg-white/5 hover:bg-white/10'}`}
+              className={`block px-3 py-4 rounded-md text-xs font-black tracking-widest uppercase ${
+                isActive(path) ? 'text-blue-400 bg-white/5' : 'text-white'
+              }`}
               onClick={() => setIsOpen(false)}
             >
               {path === '/' ? 'Home' : path.substring(1)}
@@ -85,10 +85,10 @@ const Navbar: React.FC = () => {
           ))}
           <Link 
             to="/contact" 
-            className="block bg-blue-600 text-white text-center py-5 rounded-full font-black text-sm tracking-widest uppercase shadow-xl" 
+            className="block bg-blue-600 text-white text-center py-4 rounded-xl font-black text-xs tracking-widest uppercase shadow-xl mt-4" 
             onClick={() => setIsOpen(false)}
           >
-            CONSULTATION NOW
+            CONSULTATION
           </Link>
         </div>
       )}
