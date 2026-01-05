@@ -13,9 +13,10 @@
         body { 
           font-family: 'Inter', sans-serif; 
           overflow-x: hidden; 
-          background-color: #020617; 
+          background-color: #f8fafc;
           margin: 0;
           padding: 0;
+          color: #0f172a;
         }
         
         .hero-gradient { 
@@ -32,6 +33,13 @@
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a192f; }
         ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+
+        /* Ensure root is always visible */
+        #root {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
     </style>
 <script type="importmap">
 {
@@ -46,8 +54,7 @@
 }
 </script>
 </head>
-<body class="text-white">
+<body>
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

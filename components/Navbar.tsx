@@ -10,27 +10,27 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[100] bg-[#0a192f] border-b border-white/10 shadow-xl">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-[#0a192f] border-b border-white/10 shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo Section */}
+          {/* Logo Section - Strict sizing to prevent layout breaking */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white border-2 border-blue-500 flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white border-2 border-blue-500 flex items-center justify-center shadow-lg flex-shrink-0">
                 <img 
                   src={COMPANY_DETAILS.logoUrl} 
-                  alt="Niyaz Tech" 
-                  className="w-full h-full object-contain p-1"
+                  alt="Niyaz Technologies" 
+                  className="w-full h-full object-contain p-0.5"
                 />
               </div>
-              <span className="text-white font-black text-xl tracking-tighter uppercase hidden sm:block">
+              <span className="text-white font-black text-lg tracking-tighter uppercase hidden sm:block whitespace-nowrap">
                 NIYAZ<span className="text-blue-500">TECHNOLOGIES</span>
               </span>
             </Link>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-2">
+          {/* Desktop Menu - High Contrast White Text */}
+          <div className="hidden lg:flex items-center gap-1">
             {[
               { label: 'HOME', path: '/' },
               { label: 'ABOUT', path: '/about' },
@@ -41,17 +41,19 @@ const Navbar: React.FC = () => {
               <Link 
                 key={link.path}
                 to={link.path} 
-                className={`px-4 py-2 rounded-lg text-[11px] font-black tracking-widest transition-all ${
+                className={`px-5 py-2 rounded-full text-[11px] font-black tracking-widest transition-all duration-200 ${
                   isActive(link.path) 
-                  ? 'text-blue-400' 
-                  : 'text-white hover:text-blue-300'
+                  ? 'bg-blue-600 text-white shadow-lg' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             
-            <Link to="/contact" className="ml-4 bg-blue-600 text-white px-6 py-2.5 rounded-full font-black text-[11px] tracking-widest uppercase hover:bg-blue-700 transition-all shadow-lg active:scale-95">
+            <div className="h-6 w-px bg-white/20 mx-4"></div>
+            
+            <Link to="/contact" className="bg-white text-slate-900 px-7 py-3 rounded-full font-black text-[11px] tracking-widest uppercase hover:bg-blue-500 hover:text-white transition-all shadow-xl">
               CONSULTATION
             </Link>
           </div>
@@ -60,9 +62,10 @@ const Navbar: React.FC = () => {
           <div className="lg:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="p-2 rounded-md text-white hover:text-blue-500 focus:outline-none transition-colors"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition-colors"
+              aria-label="Menu"
             >
-              <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars-staggered'} text-2xl`}></i>
+              <i className={`fa-solid ${isOpen ? 'fa-xmark' : 'fa-bars-staggered'} text-xl`}></i>
             </button>
           </div>
         </div>
@@ -70,13 +73,13 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden bg-[#0a192f] border-t border-white/10 px-4 pt-2 pb-8 space-y-1 shadow-2xl">
+        <div className="lg:hidden bg-[#0a192f] border-t border-white/10 p-6 space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
           {['/', '/about', '/pricing', '/portfolio', '/blog'].map((path) => (
             <Link 
               key={path}
               to={path} 
-              className={`block px-3 py-4 rounded-md text-xs font-black tracking-widest uppercase ${
-                isActive(path) ? 'text-blue-400 bg-white/5' : 'text-white'
+              className={`block px-6 py-4 rounded-xl text-[11px] font-black tracking-widest uppercase text-center ${
+                isActive(path) ? 'bg-blue-600 text-white shadow-lg' : 'text-white/90 bg-white/5'
               }`}
               onClick={() => setIsOpen(false)}
             >
@@ -85,7 +88,7 @@ const Navbar: React.FC = () => {
           ))}
           <Link 
             to="/contact" 
-            className="block bg-blue-600 text-white text-center py-4 rounded-xl font-black text-xs tracking-widest uppercase shadow-xl mt-4" 
+            className="block bg-blue-600 text-white text-center py-5 rounded-xl font-black text-[11px] tracking-widest uppercase shadow-xl mt-4" 
             onClick={() => setIsOpen(false)}
           >
             CONSULTATION
