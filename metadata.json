@@ -1,0 +1,8 @@
+{
+  "name": "ResultDriven Marketing Agency",
+  "description": "A comprehensive digital marketing agency platform featuring SEO, PPC, Social Media, and AI-powered insights for business growth.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
