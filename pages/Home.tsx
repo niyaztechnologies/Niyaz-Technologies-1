@@ -6,9 +6,8 @@ import { SERVICES, TESTIMONIALS, COMPANY_DETAILS } from '../constants';
 const Home: React.FC = () => {
   return (
     <div className="w-full">
-      {/* 3D Hero Section - High Contrast Background */}
+      {/* 3D Hero Section */}
       <section className="relative bg-[#020617] text-white pt-56 pb-64 perspective-2000 overflow-hidden">
-        {/* Animated Background Decor */}
         <div className="absolute top-1/4 -left-20 w-80 h-80 bg-blue-600/30 rounded-full blur-[120px] animate-3d-float"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[150px] animate-3d-float" style={{ animationDelay: '-5s' }}></div>
 
@@ -48,16 +47,15 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section - Expanded Content */}
+      {/* Services Section */}
       <section className="py-40 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-32">
-            <h2 className="text-blue-600 font-black uppercase tracking-[0.5em] text-xs mb-4">Core Growth Ecosystem</h2>
-            <h3 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight">
-              Best Digital Marketing Services in Tirupati
+            <h3 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight mb-8">
+              Digital Marketing Services in Tirupati
             </h3>
-            <p className="text-slate-500 mt-8 text-xl max-w-3xl mx-auto font-medium">
-              We help local businesses dominate search engine results and social media feeds with specialized digital marketing tirupati strategies. Our team focused on ROI and brand value.
+            <p className="text-slate-500 text-xl max-w-3xl mx-auto font-medium">
+              We provide the most comprehensive digital marketing services in Tirupati, tailored for local business scaling and global brand authority.
             </p>
           </div>
           
@@ -82,12 +80,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Expanded Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="py-40 bg-slate-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-32">
-            <h2 className="text-blue-600 font-black uppercase tracking-[0.5em] text-xs mb-4">Client Success Wall</h2>
-            <h3 className="text-5xl md:text-6xl font-black text-slate-900 mb-8">Voices of Massive Growth</h3>
+            <h3 className="text-5xl md:text-6xl font-black text-slate-900 mb-8 uppercase tracking-tighter">Client Success Wall</h3>
             <p className="text-slate-500 text-xl font-medium">Hear from over 100+ businesses why we are the top-rated digital marketing agency in tirupati.</p>
           </div>
           
@@ -113,36 +110,12 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Redesigned Compact CTA */}
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-5xl mx-auto bg-[#0a192f] rounded-[4rem] p-12 md:p-20 text-center relative overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5)] border border-white/5 group">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] -mr-40 -mt-40"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-indigo-600/10 rounded-full blur-[100px] -ml-40 -mb-40"></div>
-          
-          <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter leading-none">
-            Scale Your <span className="text-blue-500">Empire</span> Today
-          </h2>
-          <p className="text-slate-400 text-lg md:text-2xl max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
-            Join the ranks of Tirupati's market leaders. Experience precision marketing that guarantees ROI and long-term brand authority.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-8 relative z-10">
-            <a href={`tel:${COMPANY_DETAILS.phone}`} className="bg-white text-slate-950 px-12 py-6 rounded-full font-black text-xl hover:scale-110 transition-all shadow-2xl flex items-center gap-4">
-              <i className="fa-solid fa-phone-volume"></i> CALL US NOW
-            </a>
-            <a href={COMPANY_DETAILS.socials.whatsapp} className="bg-blue-600 text-white px-12 py-6 rounded-full font-black text-xl hover:scale-110 transition-all shadow-2xl flex items-center gap-4">
-              <i className="fa-brands fa-whatsapp"></i> MESSAGE WHATSAPP
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section with Correct Pin Address */}
+      {/* Map Section */}
       <section className="py-40 bg-slate-950 text-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-24 items-center">
           <div>
-            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-sm mb-6 block">OUR COMMAND CENTER</span>
-            <h3 className="text-5xl md:text-7xl font-black mb-10 leading-tight">Visit Us in <br/>Tirupati</h3>
+            <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-sm mb-6 block">LOCATION HUB</span>
+            <h3 className="text-5xl md:text-7xl font-black mb-10 leading-tight uppercase">Visit Our <br/>Headquarters</h3>
             <div className="bg-white/5 p-12 rounded-[3.5rem] border border-white/10 shadow-2xl flex gap-8 items-start mb-12">
                <div className="w-16 h-16 bg-blue-600 text-white rounded-[1.5rem] flex items-center justify-center text-3xl flex-shrink-0 shadow-lg shadow-blue-500/30">
                   <i className="fa-solid fa-location-dot"></i>
@@ -153,19 +126,16 @@ const Home: React.FC = () => {
                     {COMPANY_DETAILS.address}
                   </p>
                   <a href={COMPANY_DETAILS.gmb} target="_blank" rel="noopener" className="inline-flex items-center gap-3 text-blue-500 font-black text-sm uppercase tracking-widest hover:text-white transition-colors">
-                     OPEN IN GOOGLE MAPS PIN <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                     OPEN IN GOOGLE MAPS <i className="fa-solid fa-arrow-up-right-from-square"></i>
                   </a>
                </div>
             </div>
-            <p className="text-slate-500 text-lg font-medium italic">
-              Located directly opposite the 4th right cross railway gate for easy access. Visit the hub of the best website designers tirupati team.
-            </p>
           </div>
           <div className="h-[650px] rounded-[5rem] overflow-hidden shadow-[0_60px_120px_rgba(0,0,0,0.8)] border-[15px] border-white/5 ring-1 ring-white/10 relative">
              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.6361812852723!2d79.450710!3d13.627530!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDM3JzM5LjEiTiA3OcKwMjcnMDIuNiJF!5e0!3m2!1sen!2sin!4v1716382000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.6361812852723!2d79.4507!3d13.6275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4a8e8b2b6b5b%3A0x1b2b3c4d5e6f7g8h!2sNiyaz%20Technologies!5e0!3m2!1sen!2sin!4v1716382000000!5m2!1sen!2sin"
                 width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-                className="brightness-[0.8] contrast-[1.1] grayscale-[0.2] hover:brightness-100 hover:grayscale-0 transition-all duration-1000"
+                className="brightness-[0.9] grayscale-[0.1] hover:brightness-100 hover:grayscale-0 transition-all duration-1000"
                 title="Niyaz Technologies Poolavanigunta Map Pin"
              ></iframe>
           </div>

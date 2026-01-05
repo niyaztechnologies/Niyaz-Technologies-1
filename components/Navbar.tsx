@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[98%] max-w-7xl z-[100] transition-all">
       <div className="bg-[#0a192f] border border-white/20 rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.6)] px-6 sm:px-10 py-3">
         <div className="flex justify-between items-center h-14">
-          {/* Logo Section - Fixed sizing to prevent breaking */}
+          {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform group">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.4)] bg-white">
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
           
-          {/* Desktop Menu - High Contrast White Text */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1">
             {[
               { label: 'HOME', path: '/' },
@@ -44,14 +44,13 @@ const Navbar: React.FC = () => {
                 className={`px-6 py-2.5 rounded-full text-[13px] font-black tracking-[0.1em] transition-all duration-300 ${
                   isActive(link.path) 
                   ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(37,99,235,0.7)]' 
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                  : 'text-white hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             
-            {/* Vertical Separator */}
             <div className="h-6 w-[1px] bg-white/30 mx-4"></div>
             
             <Link to="/contact" className="bg-[#111827] border border-white/10 text-white px-8 py-3 rounded-full font-black text-[13px] tracking-[0.1em] uppercase hover:bg-blue-700 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all">
@@ -73,12 +72,12 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden mt-4 bg-[#0a192f] border border-white/20 rounded-[2.5rem] p-8 space-y-4 shadow-2xl animate-[fadeIn_0.3s_ease-out]">
+        <div className="lg:hidden mt-4 bg-[#0a192f] border border-white/20 rounded-[2.5rem] p-8 space-y-4 shadow-2xl">
           {['/', '/about', '/pricing', '/portfolio', '/blog'].map((path) => (
             <Link 
               key={path}
               to={path} 
-              className={`block px-6 py-4 rounded-full text-sm font-black tracking-widest uppercase text-center ${isActive(path) ? 'bg-blue-600 text-white shadow-lg' : 'text-white/80 bg-white/5 hover:bg-white/10'}`}
+              className={`block px-6 py-4 rounded-full text-sm font-black tracking-widest uppercase text-center ${isActive(path) ? 'bg-blue-600 text-white shadow-lg' : 'text-white bg-white/5 hover:bg-white/10'}`}
               onClick={() => setIsOpen(false)}
             >
               {path === '/' ? 'Home' : path.substring(1)}
